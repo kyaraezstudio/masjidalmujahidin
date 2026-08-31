@@ -750,7 +750,7 @@ let activePrayer = null;
 
 let modeStartTime = null;
 
-let triggeredPrayers = {};
+let lastTriggeredPrayer = null;
 
 /* DURASI */
 
