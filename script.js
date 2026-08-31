@@ -926,6 +926,25 @@ function updateIqamahMode() {
 ========================================== */
 
 function endIqamahMode() {
+
+  document
+    .getElementById("iqamah-screen")
+    .classList.remove("show");
+
+
+  displayMode = "normal";
+
+  activePrayer = null;
+
+  modeStartTime = null;
+
+}
+
+
+/* ==========================================
+   CEK WAKTU SALAT
+========================================== */
+
 function checkPrayerTime() {
 
   if (displayMode !== "normal") {
@@ -939,10 +958,12 @@ function checkPrayerTime() {
     current.minute * 60 +
     current.second;
 
+
   for (const prayer of prayers) {
 
     const prayerSeconds =
       timeToSeconds(prayer.time);
+
 
     if (
       currentSeconds >= prayerSeconds &&
@@ -952,22 +973,16 @@ function checkPrayerTime() {
       startAzanMode(prayer);
 
       break;
+
     }
 
   }
 
 }
-  document
-    .getElementById("iqamah-screen")
-    .classList.remove("show");
 
 
-  displayMode = "normal";
-
-  activePrayer = null;
-
-  modeStartTime = null;
-
-}
+/* ==========================================
+   JALANKAN APLIKASI
+========================================== */
 
 initializeApp();
