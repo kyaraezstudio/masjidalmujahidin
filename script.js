@@ -715,12 +715,10 @@ async function initializeApp() {
   updateClock();
 
 
-  /* UPDATE SETIAP DETIK */
+/* UPDATE SETIAP DETIK */
 setInterval(() => {
 
   updateClock();
-
-  updateNormalDisplay();
 
   checkPrayerTime();
 
@@ -729,7 +727,6 @@ setInterval(() => {
   updateIqamahMode();
 
 }, 1000);
-
 
   /* CEK TANGGAL BARU */
 
@@ -741,7 +738,6 @@ setInterval(() => {
 }
 
 
-initializeApp();
 /* ==========================================
    TAMBAHAN MODE ADZAN & IQAMAH
 ========================================== */
@@ -930,7 +926,37 @@ function updateIqamahMode() {
 ========================================== */
 
 function endIqamahMode() {
+function checkPrayerTime() {
 
+  if (displayMode !== "normal") {
+    return;
+  }
+
+  const current = getJakartaTime();
+
+  const currentSeconds =
+    current.hour * 3600 +
+    current.minute * 60 +
+    current.second;
+
+  for (const prayer of prayers) {
+
+    const prayerSeconds =
+      timeToSeconds(prayer.time);
+
+    if (
+      currentSeconds >= prayerSeconds &&
+      currentSeconds < prayerSeconds + 2
+    ) {
+
+      startAzanMode(prayer);
+
+      break;
+    }
+
+  }
+
+}
   document
     .getElementById("iqamah-screen")
     .classList.remove("show");
@@ -943,3 +969,5 @@ function endIqamahMode() {
   modeStartTime = null;
 
 }
+
+initializeApp();
