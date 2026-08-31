@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Masjid Al-Mujahidin KR Jati</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- BACKGROUND ORNAMENT -->
+    <div class="pattern pattern-left"></div>
+    <div class="pattern pattern-right"></div>
+
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <div class="mosque-brand">
+
+        <div class="logo-box">
+          <span>☪</span>
+        </div>
+
+        <div class="mosque-name">
+          <h1>MASJID AL-MUJAHIDIN</h1>
+          <p>KR JATI • JL. NUSA 1 NO. 38 • JAKARTA TIMUR</p>
+        </div>
+
+      </div>
+
+
+      <div class="date-box">
+
+        <div id="day" class="day">
+          SENIN
+        </div>
+
+        <div id="date" class="date">
+          31 AGUSTUS 2026
+        </div>
+
+        <div id="hijri-date" class="hijri-date">
+          17 RABIUL AWAL 1448 H
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- CLOCK -->
+      <section class="clock-card card">
+
+        <div class="section-title">
+          <span class="gold-line"></span>
+          WAKTU SEKARANG
+          <span class="gold-line"></span>
+        </div>
+
+        <div id="clock" class="clock">
+          00:00:00
+        </div>
+
+        <div class="timezone">
+          WIB • JAKARTA
+        </div>
+
+        <div class="location">
+          📍 JAKARTA TIMUR, INDONESIA
+        </div>
+
+      </section>
+
+
+      <!-- NEXT PRAYER -->
+      <section class="next-prayer-card card">
+
+        <div class="section-title">
+          <span class="gold-line"></span>
+          SALAT BERIKUTNYA
+          <span class="gold-line"></span>
+        </div>
+
+        <div id="next-prayer-name" class="next-prayer-name">
+          ZUHUR
+        </div>
+
+        <div id="next-prayer-time" class="next-prayer-time">
+          11:57
+        </div>
+
+        <div class="countdown-container">
+
+          <div class="countdown-label">
+            MENUJU WAKTU SALAT
+          </div>
+
+          <div id="countdown" class="countdown">
+            00:00:00
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- PRAYER SCHEDULE -->
+    <section class="prayer-section">
+
+      <div class="schedule-header">
+
+        <div class="schedule-line"></div>
+
+        <h2>JADWAL SALAT HARI INI</h2>
+
+        <div class="schedule-line"></div>
+
+      </div>
+
+
+      <div class="prayer-grid">
+
+        <div class="prayer-card" data-prayer="fajr">
+
+          <div class="prayer-icon">☾</div>
+
+          <div class="prayer-name">
+            SUBUH
+          </div>
+
+          <div id="fajr" class="prayer-time">
+            04:38
+          </div>
+
+        </div>
+
+
+        <div class="prayer-card" data-prayer="sunrise">
+
+          <div class="prayer-icon">☀</div>
+
+          <div class="prayer-name">
+            TERBIT
+          </div>
+
+          <div id="sunrise" class="prayer-time">
+            05:58
+          </div>
+
+        </div>
+
+
+        <div class="prayer-card" data-prayer="dhuhr">
+
+          <div class="prayer-icon">☀</div>
+
+          <div class="prayer-name">
+            ZUHUR
+          </div>
+
+          <div id="dhuhr" class="prayer-time">
+            11:57
+          </div>
+
+        </div>
+
+
+        <div class="prayer-card" data-prayer="asr">
+
+          <div class="prayer-icon">◐</div>
+
+          <div class="prayer-name">
+            ASAR
+          </div>
+
+          <div id="asr" class="prayer-time">
+            15:14
+          </div>
+
+        </div>
+
+
+        <div class="prayer-card" data-prayer="maghrib">
+
+          <div class="prayer-icon">◑</div>
+
+          <div class="prayer-name">
+            MAGRIB
+          </div>
+
+          <div id="maghrib" class="prayer-time">
+            17:56
+          </div>
+
+        </div>
+
+
+        <div class="prayer-card" data-prayer="isha">
+
+          <div class="prayer-icon">☾</div>
+
+          <div class="prayer-name">
+            ISYA
+          </div>
+
+          <div id="isha" class="prayer-time">
+            19:05
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUOTE -->
+    <section class="quote-card">
+
+      <div class="quote-decoration">
+        ❝
+      </div>
+
+      <p>
+        Sesungguhnya salat itu adalah kewajiban yang telah ditentukan waktunya bagi orang-orang yang beriman.
+      </p>
+
+      <span>
+        QS. An-Nisa: 103
+      </span>
+
+    </section>
+
+
+    <!-- FOOTER TICKER -->
+    <footer class="ticker">
+
+      <div class="ticker-title">
+
+        <span class="ticker-icon">📢</span>
+
+        <span>PENGUMUMAN</span>
+
+      </div>
+
+
+      <div class="ticker-wrapper">
+
+        <div id="ticker-text" class="ticker-text">
+
+          Selamat datang di Masjid Al-Mujahidin  • Mari bersama-sama menjaga kebersihan, ketertiban, dan kenyamanan masjid • Jangan lupa menonaktifkan atau menyenyapkan telepon genggam sebelum salat.
+
+        </div>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
