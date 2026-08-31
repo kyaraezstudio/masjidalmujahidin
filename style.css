@@ -515,10 +515,10 @@ body {
 
 
 /* ==============================
-   QUOTE
+   DAILY QUOTE
 ================================ */
 
-.quote-card {
+.daily-quote {
   position: relative;
 
   z-index: 2;
@@ -548,7 +548,7 @@ body {
   color: var(--gold);
 }
 
-.quote-card p {
+.daily-quote p {
   margin-top: 4px;
 
   font-size: 16px;
@@ -558,7 +558,7 @@ body {
   color: var(--cream);
 }
 
-.quote-card span {
+.daily-quote span {
   display: block;
 
   margin-top: 6px;
@@ -567,7 +567,6 @@ body {
 
   color: var(--gold-light);
 }
-
 
 /* ==============================
    TICKER
@@ -726,10 +725,10 @@ body {
       repeat(2, 1fr);
   }
 
-  .quote-card {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+.daily-quote {
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
 }
 /* ==========================================
