@@ -748,6 +748,7 @@ let activePrayer = null;
 
 let modeStartTime = null;
 
+let triggeredPrayers = {};
 
 /* DURASI */
 
@@ -954,15 +955,28 @@ function checkPrayerTime() {
     current.minute * 60 +
     current.second;
 
+
   for (const prayer of prayers) {
 
     const prayerSeconds =
       timeToSeconds(prayer.time);
 
+
+    /* CEK APAKAH SUDAH PERNAH DIPANGGIL */
+
+    if (triggeredPrayers[prayer.id]) {
+      continue;
+    }
+
+
+    /* JIKA WAKTU SALAT TIBA */
+
     if (
       currentSeconds >= prayerSeconds &&
       currentSeconds < prayerSeconds + 2
     ) {
+
+      triggeredPrayers[prayer.id] = true;
 
       startAzanMode(prayer);
 
@@ -973,6 +987,5 @@ function checkPrayerTime() {
   }
 
 }
-
 
 initializeApp();
