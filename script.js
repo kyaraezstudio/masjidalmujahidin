@@ -951,7 +951,9 @@ function checkPrayerTime() {
     return;
   }
 
-  const current = getJakartaTime();
+  const current =
+    getJakartaTime();
+
 
   const currentSeconds =
     current.hour * 3600 +
