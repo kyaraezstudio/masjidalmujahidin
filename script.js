@@ -750,6 +750,7 @@ let activePrayer = null;
 
 let modeStartTime = null;
 
+/* Menyimpan salat yang terakhir memicu mode adzan */
 let lastTriggeredPrayer = null;
 
 /* DURASI */
