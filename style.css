@@ -933,3 +933,189 @@ body {
   }
 
 }
+/* ==========================================
+   QUOTES AL-QURAN
+========================================== */
+
+.quran-section {
+  padding: 100px 5%;
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      #071c18,
+      #0d352c,
+      #071c18
+    );
+}
+
+
+.quran-content {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: auto;
+
+  text-align: center;
+}
+
+
+.quran-label {
+  color: #d4af37;
+
+  font-size: 14px;
+
+  letter-spacing: 5px;
+
+  font-weight: bold;
+
+  margin-bottom: 20px;
+}
+
+
+.quran-title {
+  color: white;
+
+  font-size: 38px;
+
+  margin-bottom: 60px;
+
+  letter-spacing: 2px;
+}
+
+
+/* GRID CARD */
+
+.quotes-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    );
+
+  gap: 25px;
+}
+
+
+/* CARD */
+
+.quote-card {
+  position: relative;
+
+  padding: 35px 28px;
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  border:
+    1px solid
+    rgba(212, 175, 55, 0.3);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.quote-card:hover {
+  transform:
+    translateY(-8px);
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 15px 40px
+    rgba(0, 0, 0, 0.35);
+}
+
+
+/* NOMOR CARD */
+
+.quote-number {
+  color: #d4af37;
+
+  font-size: 13px;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 25px;
+
+  font-weight: bold;
+}
+
+
+/* ARAB */
+
+.quote-arabic {
+  color: white;
+
+  font-size: 26px;
+
+  line-height: 1.8;
+
+  margin-bottom: 25px;
+}
+
+
+/* TERJEMAHAN */
+
+.quote-translation {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.8
+    );
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  margin-bottom: 25px;
+}
+
+
+/* SUMBER AYAT */
+
+.quote-source {
+  color: #d4af37;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+}
+
+
+/* MOBILE */
+
+@media (
+  max-width: 600px
+) {
+
+  .quran-section {
+    padding: 70px 20px;
+  }
+
+
+  .quran-title {
+    font-size: 26px;
+  }
+
+
+  .quote-arabic {
+    font-size: 23px;
+  }
+
+}
