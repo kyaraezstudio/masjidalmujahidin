@@ -842,7 +842,9 @@ body {
 .iqamah-screen.show {
   display: flex;
 }
-
+.iqamah-content {
+  animation: fadeIn 1s ease;
+}
 .iqamah-title {
   font-size: 22px;
 
