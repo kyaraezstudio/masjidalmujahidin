@@ -716,11 +716,19 @@ async function initializeApp() {
 
 
   /* UPDATE SETIAP DETIK */
+setInterval(() => {
 
-  setInterval(
-    updateClock,
-    1000
-  );
+  updateClock();
+
+  updateNormalDisplay();
+
+  checkPrayerTime();
+
+  updateAzanMode();
+
+  updateIqamahMode();
+
+}, 1000);
 
 
   /* CEK TANGGAL BARU */
