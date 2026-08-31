@@ -734,3 +734,204 @@ async function initializeApp() {
 
 
 initializeApp();
+/* ==========================================
+   TAMBAHAN MODE ADZAN & IQAMAH
+========================================== */
+
+let displayMode = "normal";
+
+let activePrayer = null;
+
+let modeStartTime = null;
+
+
+/* DURASI */
+
+const AZAN_DURATION = 180;
+
+
+/* DURASI IQAMAH */
+
+const IQAMAH_DURATION = {
+
+  fajr: 10,
+
+  dhuhr: 10,
+
+  asr: 10,
+
+  maghrib: 5,
+
+  isha: 10
+
+};
+
+
+/* ==========================================
+   START MODE ADZAN
+========================================== */
+
+function startAzanMode(prayer) {
+
+  if (displayMode !== "normal") {
+    return;
+  }
+
+  displayMode = "azan";
+
+  activePrayer = prayer;
+
+  modeStartTime = Date.now();
+
+
+  document
+    .getElementById("azan-screen")
+    .classList.add("show");
+
+
+  document
+    .getElementById("azan-prayer-name")
+    .textContent = prayer.name;
+
+
+  document
+    .getElementById("azan-time")
+    .textContent = prayer.time;
+
+
+  console.log(
+    "Mode Adzan:",
+    prayer.name
+  );
+
+}
+
+
+/* ==========================================
+   START MODE IQAMAH
+========================================== */
+
+function startIqamahMode() {
+
+  displayMode = "iqamah";
+
+  modeStartTime = Date.now();
+
+
+  document
+    .getElementById("azan-screen")
+    .classList.remove("show");
+
+
+  document
+    .getElementById("iqamah-screen")
+    .classList.add("show");
+
+
+  document
+    .getElementById("iqamah-prayer")
+    .textContent = activePrayer.name;
+
+}
+
+
+/* ==========================================
+   UPDATE MODE ADZAN
+========================================== */
+
+function updateAzanMode() {
+
+  if (displayMode !== "azan") {
+    return;
+  }
+
+
+  const elapsed = Math.floor(
+    (Date.now() - modeStartTime) / 1000
+  );
+
+
+  if (elapsed >= AZAN_DURATION) {
+
+    startIqamahMode();
+
+  }
+
+}
+
+
+/* ==========================================
+   UPDATE MODE IQAMAH
+========================================== */
+
+function updateIqamahMode() {
+
+  if (displayMode !== "iqamah") {
+    return;
+  }
+
+
+  const iqamahMinutes =
+    IQAMAH_DURATION[activePrayer.id] || 10;
+
+
+  const totalSeconds =
+    iqamahMinutes * 60;
+
+
+  const elapsed = Math.floor(
+    (Date.now() - modeStartTime) / 1000
+  );
+
+
+  const remaining =
+    Math.max(
+      totalSeconds - elapsed,
+      0
+    );
+
+
+  const minutes =
+    Math.floor(
+      remaining / 60
+    );
+
+
+  const seconds =
+    remaining % 60;
+
+
+  document
+    .getElementById("iqamah-countdown")
+    .textContent =
+      `${String(minutes).padStart(2, "0")}:` +
+      `${String(seconds).padStart(2, "0")}`;
+
+
+  if (remaining <= 0) {
+
+    endIqamahMode();
+
+  }
+
+}
+
+
+/* ==========================================
+   END IQAMAH
+========================================== */
+
+function endIqamahMode() {
+
+  document
+    .getElementById("iqamah-screen")
+    .classList.remove("show");
+
+
+  displayMode = "normal";
+
+  activePrayer = null;
+
+  modeStartTime = null;
+
+}
