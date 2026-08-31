@@ -941,10 +941,6 @@ function endIqamahMode() {
 }
 
 
-/* ==========================================
-   CEK WAKTU SALAT
-========================================== */
-
 function checkPrayerTime() {
 
   if (displayMode !== "normal") {
@@ -957,7 +953,6 @@ function checkPrayerTime() {
     current.hour * 3600 +
     current.minute * 60 +
     current.second;
-
 
   for (const prayer of prayers) {
 
@@ -979,9 +974,5 @@ function checkPrayerTime() {
 
 }
 
-
-/* ==========================================
-   JALANKAN APLIKASI
-========================================== */
 
 initializeApp();
