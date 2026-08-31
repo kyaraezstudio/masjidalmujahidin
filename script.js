@@ -1015,5 +1015,153 @@ const prayerIds = {
   Maghrib: "maghrib",
   Isha: "isha"
 };
+/* ==========================================
+   QUOTE SLIDER
+========================================== */
+
+let currentSlide = 0;
+
+
+function getSlidesPerView() {
+
+  if (window.innerWidth <= 600) {
+    return 1;
+  }
+
+  if (window.innerWidth <= 900) {
+    return 2;
+  }
+
+  return 3;
+
+}
+
+
+function updateSlider() {
+
+  const slider =
+    document.querySelector(
+      ".quotes-grid"
+    );
+
+  const cards =
+    document.querySelectorAll(
+      ".quote-card"
+    );
+
+  const slidesPerView =
+    getSlidesPerView();
+
+  const maxSlide =
+    Math.ceil(
+      cards.length /
+      slidesPerView
+    ) - 1;
+
+
+  if (currentSlide > maxSlide) {
+    currentSlide = 0;
+  }
+
+
+  const container =
+    document.querySelector(
+      ".slider-container"
+    );
+
+
+  const containerWidth =
+    container.offsetWidth;
+
+
+  slider.style.transform =
+    `translateX(-${currentSlide * containerWidth}px)`;
+
+}
+
+
+function nextSlide() {
+
+  const cards =
+    document.querySelectorAll(
+      ".quote-card"
+    );
+
+  const slidesPerView =
+    getSlidesPerView();
+
+  const maxSlide =
+    Math.ceil(
+      cards.length /
+      slidesPerView
+    ) - 1;
+
+
+  currentSlide++;
+
+
+  if (currentSlide > maxSlide) {
+    currentSlide = 0;
+  }
+
+
+  updateSlider();
+
+}
+
+
+function prevSlide() {
+
+  const cards =
+    document.querySelectorAll(
+      ".quote-card"
+    );
+
+  const slidesPerView =
+    getSlidesPerView();
+
+  const maxSlide =
+    Math.ceil(
+      cards.length /
+      slidesPerView
+    ) - 1;
+
+
+  currentSlide--;
+
+
+  if (currentSlide < 0) {
+    currentSlide = maxSlide;
+  }
+
+
+  updateSlider();
+
+}
+
+
+/* AUTO SLIDE */
+
+setInterval(() => {
+
+  nextSlide();
+
+}, 5000);
+
+
+/* RESPONSIVE */
+
+window.addEventListener(
+  "resize",
+  updateSlider
+);
+
+
+/* JALANKAN */
+
+window.addEventListener(
+  "load",
+  updateSlider
+);
 
 initializeApp();
