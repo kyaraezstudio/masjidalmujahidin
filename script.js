@@ -1002,5 +1002,65 @@ function checkPrayerTime() {
   }
 
 }
+// =============================
+// JADWAL SALAT OTOMATIS
+// TARUH PALING BAWAH
+// =============================
+
+const prayerIds = {
+  Fajr: "fajr",
+  Sunrise: "sunrise",
+  Dhuhr: "dhuhr",
+  Asr: "asr",
+  Maghrib: "maghrib",
+  Isha: "isha"
+};
+
+async function getPrayerTimes() {
+
+  try {
+
+    const latitude = -6.2088;
+    const longitude = 106.8456;
+
+    const now = new Date();
+
+    const day = now.getDate();
+    const month = now.getMonth() + 1;
+    const year = now.getFullYear();
+
+    const url =
+      `https://api.aladhan.com/v1/timings/${day}-${month}-${year}` +
+      `?latitude=${latitude}` +
+      `&longitude=${longitude}` +
+      `&method=20`;
+
+    const response = await fetch(url);
+
+    const result = await response.json();
+
+    const timings = result.data.timings;
+
+    for (const prayer in prayerIds) {
+
+      const id = prayerIds[prayer];
+
+      const time = timings[prayer]
+        .replace(/\s*\(.+\)/, "");
+
+      document.getElementById(id).textContent = time;
+    }
+
+    console.log("Jadwal salat otomatis berhasil dimuat");
+
+  } catch (error) {
+
+    console.error("Gagal mengambil jadwal salat:", error);
+
+  }
+}
+
+// Jalankan
+getPrayerTimes();
 
 initializeApp();
