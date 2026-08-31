@@ -69,9 +69,8 @@ body {
 
   position: relative;
 
-  overflow: hidden;
+  overflow-y: auto;
 }
-
 
 /* ==============================
    BACKGROUND ORNAMENT
