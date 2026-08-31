@@ -255,6 +255,8 @@ async function fetchPrayerTimes() {
 
     updatePrayerDisplay();
 
+    updateNextPrayer();
+
   }
 
 }
@@ -948,12 +950,15 @@ function checkPrayerTime() {
     return;
   }
 
-  const current = getJakartaTime();
+  const current =
+    getJakartaTime();
+
 
   const currentSeconds =
     current.hour * 3600 +
     current.minute * 60 +
     current.second;
+
 
   const today =
     getJakartaDateForAPI();
@@ -962,7 +967,9 @@ function checkPrayerTime() {
   for (const prayer of prayers) {
 
     const prayerSeconds =
-      timeToSeconds(prayer.time);
+      timeToSeconds(
+        prayer.time
+      );
 
 
     if (
@@ -974,7 +981,9 @@ function checkPrayerTime() {
         `${today}-${prayer.id}`;
 
 
-      if (lastTriggeredPrayer === triggerId) {
+      if (
+        lastTriggeredPrayer === triggerId
+      ) {
         return;
       }
 
