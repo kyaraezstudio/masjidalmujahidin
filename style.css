@@ -733,3 +733,199 @@ body {
   }
 
 }
+/* ==========================================
+   MODE ADZAN
+========================================== */
+
+.azan-screen {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle,
+      #0d8a72,
+      #022f27
+    );
+}
+
+.azan-screen.show {
+  display: flex;
+}
+
+.azan-content {
+  animation: fadeIn 1s ease;
+}
+
+.azan-moon {
+  font-size: 110px;
+
+  color: #d4af37;
+
+  animation:
+    moonGlow 2s infinite alternate;
+}
+
+.azan-small {
+  margin-top: 20px;
+
+  font-size: 20px;
+
+  letter-spacing: 8px;
+
+  color: #f4dc83;
+}
+
+.azan-prayer-name {
+  margin-top: 15px;
+
+  font-size: 90px;
+
+  font-weight: bold;
+
+  letter-spacing: 8px;
+
+  color: white;
+}
+
+.azan-message {
+  margin-top: 10px;
+
+  font-size: 24px;
+
+  color: #f5f0df;
+}
+
+.azan-time {
+  margin-top: 20px;
+
+  font-size: 38px;
+
+  color: #d4af37;
+}
+
+
+/* ==========================================
+   MODE IQAMAH
+========================================== */
+
+.iqamah-screen {
+  position: fixed;
+  inset: 0;
+
+  z-index: 10000;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1d120d,
+      #022f27
+    );
+}
+
+.iqamah-screen.show {
+  display: flex;
+}
+
+.iqamah-title {
+  font-size: 22px;
+
+  letter-spacing: 8px;
+
+  color: #f4dc83;
+}
+
+.iqamah-prayer {
+  margin-top: 15px;
+
+  font-size: 70px;
+
+  font-weight: bold;
+
+  letter-spacing: 6px;
+
+  color: white;
+}
+
+.iqamah-label {
+  margin-top: 35px;
+
+  font-size: 17px;
+
+  letter-spacing: 4px;
+
+  color: #f5f0df;
+}
+
+.iqamah-countdown {
+  margin-top: 15px;
+
+  font-size: 100px;
+
+  font-weight: bold;
+
+  color: #d4af37;
+
+  text-shadow:
+    0 0 30px
+    rgba(212, 175, 55, 0.3);
+}
+
+.iqamah-message {
+  margin-top: 20px;
+
+  font-size: 20px;
+
+  color: #f5f0df;
+}
+
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes moonGlow {
+
+  from {
+    text-shadow:
+      0 0 10px
+      rgba(212, 175, 55, 0.3);
+  }
+
+  to {
+    text-shadow:
+      0 0 45px
+      rgba(212, 175, 55, 0.8);
+  }
+
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
