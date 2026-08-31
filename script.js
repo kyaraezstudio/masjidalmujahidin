@@ -958,6 +958,7 @@ function checkPrayerTime() {
     current.minute * 60 +
     current.second;
 
+
   for (const prayer of prayers) {
 
     const prayerSeconds =
