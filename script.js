@@ -921,6 +921,7 @@ function updateIqamahMode() {
 }
 
 
+
 /* ==========================================
    END IQAMAH
 ========================================== */
@@ -930,7 +931,6 @@ function endIqamahMode() {
   document
     .getElementById("iqamah-screen")
     .classList.remove("show");
-
 
   displayMode = "normal";
 
@@ -951,21 +951,17 @@ function checkPrayerTime() {
     return;
   }
 
-  const current =
-    getJakartaTime();
-
+  const current = getJakartaTime();
 
   const currentSeconds =
     current.hour * 3600 +
     current.minute * 60 +
     current.second;
 
-
   for (const prayer of prayers) {
 
     const prayerSeconds =
       timeToSeconds(prayer.time);
-
 
     if (
       currentSeconds >= prayerSeconds &&
