@@ -955,6 +955,9 @@ function checkPrayerTime() {
     current.minute * 60 +
     current.second;
 
+  const today =
+    getJakartaDateForAPI();
+
 
   for (const prayer of prayers) {
 
@@ -962,21 +965,23 @@ function checkPrayerTime() {
       timeToSeconds(prayer.time);
 
 
-    /* CEK APAKAH SUDAH PERNAH DIPANGGIL */
-
-    if (triggeredPrayers[prayer.id]) {
-      continue;
-    }
-
-
-    /* JIKA WAKTU SALAT TIBA */
-
     if (
       currentSeconds >= prayerSeconds &&
-      currentSeconds < prayerSeconds + 2
+      currentSeconds < prayerSeconds + 60
     ) {
 
-      triggeredPrayers[prayer.id] = true;
+      const triggerId =
+        `${today}-${prayer.id}`;
+
+
+      if (lastTriggeredPrayer === triggerId) {
+        return;
+      }
+
+
+      lastTriggeredPrayer =
+        triggerId;
+
 
       startAzanMode(prayer);
 
